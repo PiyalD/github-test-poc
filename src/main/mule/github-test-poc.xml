@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="e0b53e6b-6776-46b0-b2a2-240eb20f99ba" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="github-test-pocFlow" doc:id="97b638e9-ea19-4c15-bd4e-e66629bc1d66" >
+		<http:listener doc:name="Listener" doc:id="88c583e8-f7e7-47f0-8f90-08d170a89164" config-ref="HTTP_Listener_config" path="/test"/>
+		<set-payload value="test" doc:name="Set Payload" doc:id="f7af6ed4-7142-4125-8e45-3c99da45bd66" />
+		<logger level="INFO" doc:name="Logger1" doc:id="3eff0551-b5c2-4f73-a80e-5a6e3f819a62" message="Logger1"/>
+	</flow>
+</mule>
